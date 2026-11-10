@@ -1,7 +1,7 @@
 import allure
 import pytest
 from locators.home_page_locators import TestHomePageLocators
-from test_data import expected_texts, DZEN_URL, BASE_URL
+from data import expected_texts, DZEN_URL, BASE_URL
 
 
 class TestHomePageSamokat:
@@ -27,13 +27,13 @@ class TestHomePageSamokat:
 
     @allure.title('Проверка нажатия на логотип "Яндекс"')
     @allure.description('Проверка открытия страницы Яндекс.Дзен в соседней вкладке при нажатии на логотип "Яндекс"')
-    def test_clicking_yandex_logo_opens_dzen_page(self, driver, home_page):
+    def test_clicking_yandex_logo_opens_dzen_page(self, home_page):
         home_page.click_logo_yandex_open_dzen_page()
-        assert driver.current_url == DZEN_URL
+        assert home_page.get_current_url() == DZEN_URL
 
     @allure.title('Проверка нажатия на логотип "Самокат"')
     @allure.description('Проверка перехода на главную страницу при нажатии на логотип "Самокат"')
-    def test_click_logo_samokat_open_home_page(self, driver, home_page):
+    def test_click_logo_samokat_open_home_page(self, home_page):
         home_page.click_order_button_header()
         home_page.click_logo_open_home_page()
-        assert driver.current_url == BASE_URL
+        assert home_page.get_current_url() == BASE_URL

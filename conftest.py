@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from pages.home_page import HomePageSamokat
 from pages.order_form_page import OrderFormPage
-from test_data import BASE_URL
+from data import BASE_URL
 
 
 @pytest.fixture(scope="function")

@@ -109,3 +109,9 @@ class OrderFormPage(BasePage):
         self.set_comment_field(comment)
         self.click_order_button()
         self.check_displaying_of_confirm_window()
+
+    @allure.step('Проверить отображение окна успешного оформления заказа')
+    def check_displaying_of_complete_order_pop_up(self):
+        return self.check_displaying_of_element(
+            TestOrderFormPageLocators.POP_UP_COMPLETE_ORDER
+        )
